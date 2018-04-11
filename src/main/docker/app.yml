@@ -1,0 +1,19 @@
+version: '2'
+services:
+    monolithapplication-app:
+        image: monolithapplication
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://monolithapplication-mysql:3306/monolithapplication?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=monolithapplication-elasticsearch:9300
+        ports:
+            - 8080:8080
+    monolithapplication-mysql:
+        extends:
+            file: mysql.yml
+            service: monolithapplication-mysql
+    monolithapplication-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: monolithapplication-elasticsearch
