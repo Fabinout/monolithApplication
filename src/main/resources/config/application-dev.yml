@@ -65,6 +65,10 @@ spring:
     thymeleaf:
         cache: false
 
+elasticsearch:
+    properties:
+        http:
+            enabled: true
 liquibase:
     contexts: dev
 
