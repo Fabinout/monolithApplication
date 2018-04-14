@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install tools
+      homebrew_cask: name={{ item }}
+      with_items:
+        - git
+        - jdk8
+        - docker
+        - maven
+        
+
+...
